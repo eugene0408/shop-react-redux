@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCategories, fetchGoods } from './store/goodsSlice';
+import { Routes, Route, useParams } from 'react-router-dom';
+// Layout
+import Layout from './layout/Layout';
+// Pages
+import IndexPage from './pages/index-page/IndexPage';
+import CategoryPage from './pages/category-page/CategoryPage';
+import Cart from './pages/cart/Cart';
+import GoodPage from './pages/good-page/GoodPage';
 
 function App() {
+  const {category, goodId} = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchGoods());
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+      <Routes>
+        <Route 
+          path='/'
+          element={<Layout />}
         >
-          Learn React
-        </a>
-      </header>
+
+          <Route index
+            element={<IndexPage />}
+          />
+
+          <Route path='cart'
+            element={<Cart />}
+          />
+
+          <Route path='categories/:category' 
+            element={<CategoryPage/>}
+          />
+
+          <Route path='products/:goodId'
+            element={<GoodPage />}
+          />
+          
+        </Route>
+      </Routes>
+      
     </div>
   );
 }

@@ -1,0 +1,32 @@
+[
+    {
+        "label": "Чай",
+        "value": "tea",
+        "image": "images/ivan-chai.webp"
+    },
+    {
+        "label": "Мед",
+        "value": "honey",
+        "image": "images/honey.png"
+    },
+    {
+        "label": "Трави",
+        "value": "herbs",
+        "image": "images/romashka.jpg"
+    },
+    {
+        "label": "Настойки",
+        "value": "tinctures",
+        "image": "images/honey.png"
+    },
+    {
+        "label": "Ягоди",
+        "value": "berries",
+        "image": "images/honey.png"
+    },
+    {
+        "label": "Варення",
+        "value": "jam",
+        "image": "images/honey.png"
+    }
+]
