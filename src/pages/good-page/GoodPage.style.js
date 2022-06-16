@@ -22,6 +22,13 @@ export const GoodDescription = styled.p`
     white-space: pre-wrap;
 `
 
+export const GoodPriceWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
 export const GoodPrice = styled.p`
     font-size: 28px;
     font-weight: 700;
@@ -33,6 +40,19 @@ export const GoodPrice = styled.p`
         color: rgba(0,0,0, 0.6);
     }
 `
+export const GoodSize = styled.p`
+    font-size: 28px;
+    &:after{
+        content: "г.";
+        font-size: 22px;
+        color: rgba(0,0,0, .6);
+    }
+`
 
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+`
 
 

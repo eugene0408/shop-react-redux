@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../../store/goodsSlice'
-import { ReactComponent as CartIcon} from '../../assets/svg/cart.svg'
+// Button
+import AddToCartBtn from '../AddToCartBtn/AddToCartBtn';
+
 // Styles
 import { 
     CardWrapper,
@@ -10,9 +10,6 @@ import {
     CardContent,
     Title,
     Price,
-    CardButton,
-    IconWrapper,
-    IconAmount, 
     LinkArea,
     PriceWrapper,
     Size
@@ -26,15 +23,6 @@ const GoodCard = ({
     size,
     articul
 }) => {
-    const dispatch = useDispatch();
-    const cart = useSelector(state => state.goods.cart)
-
-    const buttonClickHandler = (e) => {   
-        e.stopPropagation();
-        let id = e.currentTarget.value
-        dispatch(addToCart({id}))
-    }
-
     return (
 
     <CardWrapper>
@@ -56,23 +44,9 @@ const GoodCard = ({
                 </Price>
             </PriceWrapper>
     
-
-            <CardButton
-                value={articul}
-                onClick={(e) => buttonClickHandler(e)}
-            >   
-                <IconWrapper>
-                    {cart[articul] >= 1 &&
-                        <IconAmount>
-                            {
-                                cart[articul] >= 99 ? "99" : cart[articul]
-                            }
-                        </IconAmount>
-                    }
-                    <CartIcon />
-                </IconWrapper>
-                у кошик
-            </CardButton>
+            <AddToCartBtn 
+                articul={articul}
+            />
         </CardContent>
         
         {/* link to description page */}

@@ -2,11 +2,15 @@ import {useParams} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 import { PageContainer } from '../pages.style.js';
+import AddToCartBtn from '../../components/AddToCartBtn/AddToCartBtn.jsx';
 import {
 	GoodImage,
 	GoodTitle,
 	GoodDescription,
+	GoodPriceWrapper,
 	GoodPrice,
+	GoodSize,
+	ButtonContainer
 } from './GoodPage.style.js'
 import { Container } from 'react-grid-system';
 
@@ -31,11 +35,21 @@ const GoodPage = () => {
 					{good.description}
 				</GoodDescription>
 
+				<GoodPriceWrapper>
+					<GoodSize>
+						{good.size}
+					</GoodSize>
+					<GoodPrice>
+						{good.price}
+					</GoodPrice>
+				</GoodPriceWrapper>
 
-				<GoodPrice>
-					{good.price}
-				</GoodPrice>
-				
+				<ButtonContainer>
+					<AddToCartBtn
+						articul={goodId}
+					/>
+				</ButtonContainer>
+			
 			</Container>
 		</PageContainer>
 
