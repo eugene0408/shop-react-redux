@@ -6,7 +6,7 @@ export const CardWrapper = styled.div`
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
-    height: 19rem;
+    height: 17rem;
     width: 100%;
     box-shadow: var(--card-shadow);
 `
@@ -34,32 +34,49 @@ export const Title = styled.h3`
     height: 2.2rem;
     margin: .3em;
     text-align: left;
+    color: rgba(0,0,0, .6);
     display: inline-block;
     position: relative;
-    text-transform: uppercase;
-    
+    text-transform: capitalize;
+    font-size: 16px;
+`
 
+export const PriceWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 0;
+`
+
+export const Size = styled.p`
+    margin: 0;
+    font-size: 16px;
+    &::after{
+        content: "г.";
+        font-size: 12px;
+        color: rgba(0,0,0, .8);
+    }
 `
 export const Price = styled.p`
-    margin-top: .5rem;
-    margin-right: 1rem;
-    width: 100%;
-    text-align: right;
+    margin: 0;
     font-size: 18px;
     font-weight: 700;
     &:after{
         content: '₴';
         font-size: var(--text-fz);
+        color: rgba(0,0,0, .6);
         font-weight: 700;
     }
 `
 
 export const CardButton = styled.button`
-    font-size: 14px;  
+    font-size: 12px;  
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: var(--yellow);
+    background: var(--orange);
+    color: #fff;
     border: none;
     border-radius: 10px;
     width: 8rem;
@@ -71,28 +88,29 @@ export const CardButton = styled.button`
 export const IconWrapper = styled.div`
     position: relative;
     height: 100%;
-    margin-right: .5rem;
+    margin-right: .8rem;
     display: flex;
     align-items: center;
     & svg {
         width: 1.5rem;       
     }
     & svg path {
-        fill: black;
+        fill: rgba(256,256,256, .8);;
     }
 `
 
 export const IconAmount = styled.span`
     position: absolute;
     top: 12%;
-    left: 34%;
+    left: 32%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 1.6em;
     width: 1.6em;
-    background: rgba(255, 255, 255, .7);
-    border: 1px solid rgba(0,0,0, .1);
+    color: white;
+    /* background: rgba(0,0,0, .1); */
+    border: 1px solid rgba(256,256,256, .6);
     border-radius: 50%;
     text-align: center;
     font-size: 8px;

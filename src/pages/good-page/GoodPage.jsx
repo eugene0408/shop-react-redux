@@ -6,7 +6,7 @@ import {
 	GoodImage,
 	GoodTitle,
 	GoodDescription,
-	GoodPrice
+	GoodPrice,
 } from './GoodPage.style.js'
 import { Container } from 'react-grid-system';
 
@@ -31,9 +31,11 @@ const GoodPage = () => {
 					{good.description}
 				</GoodDescription>
 
+
 				<GoodPrice>
 					{good.price}
 				</GoodPrice>
+				
 			</Container>
 		</PageContainer>
 

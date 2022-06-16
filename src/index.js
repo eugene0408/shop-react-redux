@@ -6,7 +6,7 @@ import store, {persistor} from './store'
 // Redux Persist
 import { PersistGate } from 'redux-persist/integration/react';
 // Router
-import { HashRouter } from 'react-router-dom';
+import {HashRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';

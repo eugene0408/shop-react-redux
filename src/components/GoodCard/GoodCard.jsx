@@ -13,7 +13,9 @@ import {
     CardButton,
     IconWrapper,
     IconAmount, 
-    LinkArea
+    LinkArea,
+    PriceWrapper,
+    Size
 } from './GoodCard.styles'
 
 
@@ -21,6 +23,7 @@ const GoodCard = ({
     image,
     title,
     price,
+    size,
     articul
 }) => {
     const dispatch = useDispatch();
@@ -43,9 +46,15 @@ const GoodCard = ({
             <Title>
                 {title}
             </Title>
-            <Price>
-                {price}
-            </Price>
+
+            <PriceWrapper>
+                <Size>
+                    {size}
+                </Size>
+                <Price>
+                    {price}
+                </Price>
+            </PriceWrapper>
     
 
             <CardButton

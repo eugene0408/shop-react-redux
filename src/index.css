@@ -61,9 +61,11 @@
 /* Variables */
 :root{
   --main-bg: white;
-  --card-bg: #d9d9d9;
+  --card-bg: #e8eef4;
   --glass-bg: rgba(217,217,217, .99);
   --text-col: black;
+  --green: #0bbc5c;
+  --orange: #ff5b38;
   --yellow: #E6EB0F;
   --text-fz: 16px;
   --card-shadow: 0px 0px 8px 4px rgba(0,0,0,0.1);

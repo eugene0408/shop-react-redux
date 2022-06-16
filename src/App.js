@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCategories, fetchGoods } from './store/goodsSlice';
+import { fetchData } from './store/goodsSlice';
 import { Routes, Route, useParams } from 'react-router-dom';
 // Layout
 import Layout from './layout/Layout';
@@ -15,8 +15,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategories());
-    dispatch(fetchGoods());
+    dispatch(fetchData('categories'));
+    dispatch(fetchData('goods'));
   }, [])
 
 
@@ -42,7 +42,7 @@ function App() {
           />
 
           <Route path='products/:goodId'
-            element={<GoodPage />}
+            element={<GoodPage/>}
           />
           
         </Route>

@@ -1,22 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchGoods = createAsyncThunk(
-    'goods/fetchGoods',
-    async function(){
-        const response = await fetch('data/goods.json');
-        const data = await response.json();
-        return data;
+export const fetchData = createAsyncThunk(
+    'goods/fetchData',
+    async function(fileName, {rejectWithValue}){
+        try{
+            const response = await fetch(`data/${fileName}.json`); 
+        
+            if(!response.ok){
+                throw new Error(`Помилка завантаження файлу ${fileName}.json`)
+            }
+            const data = await response.json();
+            return {fileName, data};
+
+        } catch (error) {
+            return rejectWithValue(error.messege);
+        } 
     }
 )
 
-export const fetchCategories = createAsyncThunk(
-    'goods/fetchCategories',
-    async function(){
-        const response = await fetch('data/categories.json');
-        const data = await response.json();
-        return data;
-    }
-)
 
 
 
@@ -59,20 +60,22 @@ const goodsSlice = createSlice({
        
     },
     extraReducers: {
-        [fetchGoods.pending]: (state) => {
+        [fetchData.pending]: (state) => {
             state.status = 'loading'
             state.error = null
         },
-        [fetchGoods.fulfilled]: (state, action) => {
-            state.status = 'resolved'
-            state.goods = action.payload
-        },
-        [fetchGoods.rejected]: (state, action) => {
 
+
+        [fetchData.fulfilled]: (state, action) => {
+            state.status = 'resolved'
+            state[action.payload.fileName] = action.payload.data
         },
-        [fetchCategories.fulfilled]: (state, action) => {
-            state.categories = action.payload
+
+        [fetchData.rejected]: (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
         },
+        
     }
 });
 

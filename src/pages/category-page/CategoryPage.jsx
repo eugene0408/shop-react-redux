@@ -47,6 +47,7 @@ const CategoryPage = () => {
                   image={good.image}
                   articul={good.articul}
                   price={good.price}
+                  size={good.size}
                 />
               </Col>
             ))
