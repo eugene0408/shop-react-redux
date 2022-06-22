@@ -1,12 +1,12 @@
 import React from 'react'
-
 import { useDispatch } from 'react-redux'
+// Actions
 import { addAmount, reduceAmount, removeItem } from '../../store/goodsSlice'
-
+// Icons
 import {ReactComponent as DownIcon} from '../../assets/svg/down-arrow.svg'
 import {ReactComponent as UpIcon} from '../../assets/svg/up-arrow.svg'
 import {ReactComponent as XIcon} from '../../assets/svg/xmark-solid.svg'
-
+// Styles
 import { 
     CardWrapper,
     CardImage,
@@ -32,21 +32,6 @@ const CartCard = ({
 
   const dispatch = useDispatch();
 
-  const addAmountHandler = (e) => {
-    const id = e.currentTarget.value;
-    dispatch(addAmount({id}))
-  }
-  const reduceAmountHandler = (e) => {
-    const id = e.currentTarget.value;
-    dispatch(reduceAmount({id}))
-  }
-
-  const removeItemHandler = (e) => {
-    const id = e.currentTarget.value;
-    dispatch(removeItem({id}))
-  }
-
-
   return (
     <CardWrapper>
 
@@ -66,14 +51,14 @@ const CartCard = ({
         <AmountWrapper>
           <AmountButton
             value={articul}
-            onClick={e => addAmountHandler(e)}
+            onClick={e => dispatch(addAmount({id: e.currentTarget.value}))}
           >
             <UpIcon />
           </AmountButton>
             {amount}
           <AmountButton
             value={articul}
-            onClick={e => reduceAmountHandler(e)}
+            onClick={e => dispatch(reduceAmount({id: e.currentTarget.value}))}
           >
             <DownIcon />
           </AmountButton>
@@ -90,7 +75,7 @@ const CartCard = ({
 
         <DeleteButton
           value={articul}
-          onClick={e => removeItemHandler(e)}
+          onClick={e => dispatch(removeItem({id: e.currentTarget.value}))}
         >
           <XIcon />
         </DeleteButton>

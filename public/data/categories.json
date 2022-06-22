@@ -12,21 +12,21 @@
     {
         "label": "Трави",
         "value": "herbs",
-        "image": "images/romashka.jpg"
+        "image": "images/calendula.jpg"
     },
     {
         "label": "Настойки",
         "value": "tinctures",
-        "image": "images/honey.png"
+        "image": "images/tincture.jpg"
     },
     {
         "label": "Ягоди",
         "value": "berries",
-        "image": "images/honey.png"
+        "image": "images/blueberries.jpg"
     },
     {
         "label": "Варення",
         "value": "jam",
-        "image": "images/honey.png"
+        "image": "images/jam.jpg"
     }
 ]

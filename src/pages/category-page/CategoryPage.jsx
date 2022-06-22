@@ -33,7 +33,7 @@ const CategoryPage = () => {
         {
             filteredGoods.map(good => (
               <Col 
-                xs={6} 
+                xs={6} md={4} lg={3} xl={2}
                 key={good.articul}
                 style={{
                   display: 'flex',

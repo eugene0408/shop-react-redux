@@ -28,3 +28,9 @@ export const TotalValue = styled.p`
         font-weight: 700;
     }
 `
+export const SubmitBtnWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+`

@@ -6,7 +6,8 @@ import GoodCard from '../../components/GoodCard/GoodCard';
 import { PageContainer } from '../pages.style';
 import { 
   AboutText, 
-  SectionHeader 
+  SectionHeader,
+  ColCard 
 } from './IndexPage.styles';
 
 const IndexPage = () => {
@@ -23,12 +24,12 @@ const IndexPage = () => {
           <SectionHeader>
             Оберіть категорію
           </SectionHeader>
-          <Row>
+          <Row justify='center'>
           {
             categories.map(category => (
               <Col
                 key={category.label}
-                xs={6}          
+                xs={6} md={4} lg={2} xl={1.8} xxl={1.3}   
               >
                 <CategoryCircle
                   image={category.image}
@@ -48,15 +49,9 @@ const IndexPage = () => {
           <Row>
             {
               popularGoods.map(good => (
-                <Col 
-                  xs={6} 
+                <ColCard 
+                  xs={6} md={4} lg={3} xl={2}
                   key={good.articul}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    padding: '10px',
-                    position: 'relative'
-                  }}
                 >
                   <GoodCard      
                     title={good.name}
@@ -65,7 +60,7 @@ const IndexPage = () => {
                     price={good.price}
                     size={good.size}
                   />
-                </Col>
+                </ColCard>
               ))
             }
           </Row>

@@ -9,6 +9,9 @@ export const CardWrapper = styled.div`
     height: 17rem;
     width: 100%;
     box-shadow: var(--card-shadow);
+    @media (min-width: 576px) {
+        height: 20rem;
+    }
 `
 export const CardImage = styled.div`
     background-image: url(${props => props.image});
@@ -16,6 +19,13 @@ export const CardImage = styled.div`
     background-size: cover;
     height: 60%;
     width: 100%;
+    transition: all .5s ease;
+    @media (hover: hover){
+        ${CardWrapper}:hover & {
+            transform: scale(1.2) ;
+        }
+    }
+
 `
 export const CardContent = styled.div`
     border-radius: 0 15px 0 0;
@@ -28,6 +38,9 @@ export const CardContent = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
+    @media (min-width: 576px) {
+        padding: .5rem .5rem .7rem .5rem;
+    }
 `
 export const Title = styled.h3`
     width: 100%;
@@ -47,6 +60,9 @@ export const PriceWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: .5rem 0;
+    @media (min-width: 576px) {
+        padding: .3rem 0 1.1rem 0;
+    }
 `
 
 export const Size = styled.p`

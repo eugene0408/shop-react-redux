@@ -9,6 +9,12 @@ export const GoodImage = styled.div`
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     margin-top: 4rem;
+    @media (min-width: 768px){
+        margin-top: 5rem;
+    }
+    @media (min-width: 1600px) {
+        height: 400px;
+    }
 `
 
 export const GoodTitle = styled.h3`
@@ -53,6 +59,9 @@ export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    @media (min-width: 768px){
+        margin-top: 3rem;
+    }
 `
 
 

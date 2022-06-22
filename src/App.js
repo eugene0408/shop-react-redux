@@ -9,6 +9,7 @@ import IndexPage from './pages/index-page/IndexPage';
 import CategoryPage from './pages/category-page/CategoryPage';
 import Cart from './pages/cart/Cart';
 import GoodPage from './pages/good-page/GoodPage';
+import FormPage from './pages/form-page/FormPage';
 
 function App() {
   const {category, goodId} = useParams();
@@ -35,6 +36,10 @@ function App() {
 
           <Route path='cart'
             element={<Cart />}
+          />
+
+          <Route path='form'
+            element={<FormPage/>}
           />
 
           <Route path='categories/:category' 

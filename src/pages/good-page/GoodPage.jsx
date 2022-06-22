@@ -12,7 +12,7 @@ import {
 	GoodSize,
 	ButtonContainer
 } from './GoodPage.style.js'
-import { Container } from 'react-grid-system';
+import { Col, Container, Row } from 'react-grid-system';
 
 
 const GoodPage = () => {
@@ -25,31 +25,44 @@ const GoodPage = () => {
 	return (
 		<PageContainer>
 			<Container>
-				<GoodImage image={good.image} />
+				<Row>
+					<Col xs={12} md={8} lg={6}
+						offset={{md: 2, lg: 3}}
+					>
+						<GoodImage image={good.image} />
+					</Col>
 
-				<GoodTitle>
-					{good.name}
-				</GoodTitle>
+					<Col xs={12} md={8} lg={6}
+						offset={{md: 2, lg: 3}}
+					>
+						<GoodTitle>
+							{good.name}
+						</GoodTitle>
 
-				<GoodDescription>
-					{good.description}
-				</GoodDescription>
+						<GoodDescription>
+							{good.description}
+						</GoodDescription>
 
-				<GoodPriceWrapper>
-					<GoodSize>
-						{good.size}
-					</GoodSize>
-					<GoodPrice>
-						{good.price}
-					</GoodPrice>
-				</GoodPriceWrapper>
+						<GoodPriceWrapper>
+							<GoodSize>
+								{good.size}
+							</GoodSize>
+							<GoodPrice>
+								{good.price}
+							</GoodPrice>
+						</GoodPriceWrapper>
 
-				<ButtonContainer>
-					<AddToCartBtn
-						articul={goodId}
-					/>
-				</ButtonContainer>
-			
+					</Col>
+
+					<Col xs={12}>
+						<ButtonContainer>
+							<AddToCartBtn
+								articul={goodId}
+								btnSize={'large'}
+							/>
+						</ButtonContainer>
+					</Col>
+				</Row>	
 			</Container>
 		</PageContainer>
 

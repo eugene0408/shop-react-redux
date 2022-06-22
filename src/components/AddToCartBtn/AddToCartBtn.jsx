@@ -10,23 +10,18 @@ import {
     IconAmount
 } from './AddToCartBtn.styles'
 
-const AddToCartBtn = ({articul}) => {
+const AddToCartBtn = ({articul, btnSize}) => {
 
     const dispatch = useDispatch();
     const cart = useSelector(state => state.goods.cart)
 
-    const buttonClickHandler = (e) => {   
-        let id = e.currentTarget.value
-        dispatch(addToCart({id}))
-    }
-
-
   return (
     <Button
         value={articul}
-        onClick={(e) => buttonClickHandler(e)}
+        btnSize={btnSize}
+        onClick={(e) => dispatch(addToCart({id: [e.currentTarget.value]}))}
     >   
-        <IconWrapper>
+        <IconWrapper btnSize={btnSize}>
             {cart[articul] >= 1 &&
                 <IconAmount>
                     {
