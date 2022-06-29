@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeCategory } from '../../store/goodsSlice';
 
 import {ReactComponent as CaretIcon} from '../../assets/svg/caret.svg';
+import {ReactComponent as XIcon} from '../../assets/svg/xmark-solid.svg';
+
 import { MenuIcons } from './CatalogMenu.icons';
 import { 
     MenuButton, 
@@ -26,12 +28,19 @@ const menuItemClickHandler = (e) => {
 }
 
   return (
-    <MenuWrapper>
+    <MenuWrapper
+        expanded={expanded}
+    >
         <MenuButton
             onClick={()=> setExpanded(!expanded)}
         >
             Каталог
-            <CaretIcon/>
+            {!expanded &&
+                <CaretIcon/>   
+            }
+            {expanded &&
+                <XIcon/>   
+            }
 
         </MenuButton>
         {expanded &&

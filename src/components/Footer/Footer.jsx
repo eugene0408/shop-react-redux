@@ -1,15 +1,20 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-grid-system';
+
+
 import {ReactComponent as PhoneIcon} from '../../assets/svg/phone-solid.svg'
 import {ReactComponent as FacebookIcon} from '../../assets/svg/facebook-f-brands.svg'
 import {ReactComponent as InstaIcon} from '../../assets/svg/instagram-brands.svg'
+
 import { 
     Wrapper,
     Header,
     PhoneWrapper,
     SocialWrapper,
-    SocialLink
+    SocialLink,
+    MapWrapper
  } from './Footer.styles';
+
 
 
 const Footer = () => {
@@ -43,6 +48,8 @@ const Footer = () => {
                         </SocialLink>
                     </SocialWrapper>
 
+     
+
                 </Col>
             </Row>
         </Container>
@@ -52,3 +59,4 @@ const Footer = () => {
 }
 
 export default Footer
+
