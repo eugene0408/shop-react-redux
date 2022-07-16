@@ -1,22 +1,39 @@
 import {Link, Outlet} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { selectCart } from '../store/selectors';
+import { selectTheme } from '../store/selectors';
+import { setTheme } from '../store/themeSlice';
+
+import CatalogMenu from '../components/CatalogMenu/CatalogMenu'
+import Footer from '../components/Footer/Footer'
+
+import {ReactComponent as Logo} from '../assets/svg/logo.svg'
+import {ReactComponent as CartIcon} from '../assets/svg/cart.svg'
+import {ReactComponent as SunIcon} from '../assets/svg/sun.svg'
+import {ReactComponent as MoonIcon} from '../assets/svg/moon.svg'
+
 import { 
+    AppContainer,
     ToplineContainer,
     ToplineNav,
     ToplineWrapper,
+    ButtonsWrapper,
     CartAmount,
     SelectContainer,
     SelectWrapper,
-    CartButtonWrapper
+    CartButtonWrapper,
+    ThemeSwitch
  } from './Layout.styles'
- import CatalogMenu from '../components/CatalogMenu/CatalogMenu'
- import Footer from '../components/Footer/Footer'
 
- import {ReactComponent as CartIcon} from '../assets/svg/cart.svg'
 
 const Layout = ()=> {
 
-    const cart = useSelector(state => state.goods.cart)
+    const dispatch = useDispatch();
+    const cart = useSelector(selectCart);
+    const theme = useSelector(selectTheme);
+
+
 
     const cartAmount = () => {
         let amount = 0;
@@ -27,25 +44,33 @@ const Layout = ()=> {
     }
  
     return(
-        <>
+        <AppContainer>
             <ToplineWrapper>
                 <ToplineContainer>
                     <ToplineNav>
 
                         <Link to={'/'}>
-                            Home
+                            <Logo style={{height: '38px'}}/>
                         </Link>
 
-                        <Link to={"cart"}>
-                            <CartButtonWrapper>
-                                {Object.keys(cart).length >= 1 && 
-                                    <CartAmount>
-                                        {cartAmount() >= 99 ? "99" : cartAmount()}
-                                    </CartAmount>
-                                }
-                                <CartIcon style={{height: "25px"}}/>
-                            </CartButtonWrapper>
-                        </Link>
+                        <ButtonsWrapper>
+                            <ThemeSwitch
+                                onClick={() => theme === 'light' ? dispatch(setTheme('dark')) : dispatch(setTheme('light'))}
+                            >
+                                {theme === 'light' ? <SunIcon /> : <MoonIcon/> }
+                            </ThemeSwitch>
+
+                            <Link to={"cart"}>
+                                <CartButtonWrapper>
+                                    {Object.keys(cart).length >= 1 && 
+                                        <CartAmount>
+                                            {cartAmount() >= 99 ? "99" : cartAmount()}
+                                        </CartAmount>
+                                    }
+                                    <CartIcon style={{height: "25px"}}/>
+                                </CartButtonWrapper>
+                            </Link>
+                        </ButtonsWrapper>
 
                     </ToplineNav>
                 </ToplineContainer>
@@ -62,7 +87,7 @@ const Layout = ()=> {
 
         
             <Footer />
-        </>
+        </AppContainer>
 
     )
 }

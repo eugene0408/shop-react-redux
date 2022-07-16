@@ -2,11 +2,15 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Container, Row, Col} from 'react-grid-system'
 import { useSelector } from 'react-redux'
+
+import { selectCart, selectGoodsInCart } from '../../store/selectors'
+
 import CartCard from '../../components/CartCard/CartCard'
-import { TotalLabel } from '../../components/CartCard/CartCard.styles'
 import EmptyCart from '../../components/EmptyCart/EmptyCart'
+import { TotalLabel } from '../../components/CartCard/CartCard.styles'
 import { PageContainer } from '../pages.style'
 import { Button } from '../../components/Button.style'
+
 import { 
   CartHeader, 
   TotalValue, 
@@ -16,35 +20,24 @@ import {
 
 
 const Cart = () => {
-  const goods = useSelector(state => state.goods.goods)
-  const cart = useSelector(state => state.goods.cart)
 
-  // Return array of goods objects which are in cart
-  const goodsInCart = () => {
-    let list = []
+  const cart = useSelector(selectCart);
+  const goodsInCart = useSelector(selectGoodsInCart)
 
-    Object.keys(cart).forEach(key => {
-      list.push(goods.find(good => good.articul === key))
-    })
-
-    return list;
-  }
-
-  
+  // Calculating total prise
   const totalPrice = () => {
     let total = 0;
-
-    goodsInCart().forEach(good => {
+    goodsInCart.forEach(good => {
       total += cart[good.articul] * good.price
     })
-
     return total;
   }
 
+  
   return (
     <PageContainer>
 
-    {goodsInCart().length >= 1 &&
+    {goodsInCart.length >= 1 &&
       <>
         <CartHeader>
           Товари у кошику
@@ -52,7 +45,7 @@ const Cart = () => {
 
         <Container>
           <Row>
-            {goodsInCart().map(good => (
+            {goodsInCart.map(good => (
                 <Col
                 key={good.articul}
                 xs={12} md={10} lg={8} xl={6}
@@ -98,7 +91,7 @@ const Cart = () => {
       </>
     }
 
-    {goodsInCart().length < 1 &&
+    {goodsInCart.length < 1 &&
       <EmptyCart
         text={'Кошик Порожній'}
       />

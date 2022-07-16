@@ -22,7 +22,7 @@ export const Button = styled.button`
     align-items: center;
     justify-content: flex-start;
     background: var(--orange);
-    color: #fff;
+    color: var(--btn-text);
     border: none;
     border-radius: 10px;
     width: ${props => props.btnSize === 'large'? lagrgeButton.width : smallButton.width};
@@ -44,11 +44,11 @@ export const IconWrapper = styled.div`
         width: 1.5rem;    
     }
     & svg path {
-        fill: rgba(256,256,256, .7);
+        fill: var(--btn-icon-fill);
     }
     @media (hover: hover){
         ${Button}:hover & svg path{
-            fill: white;
+            fill: var(--btn-text);
         }
     }
 `
@@ -62,7 +62,7 @@ export const IconAmount = styled.span`
     align-items: center;
     height: 1.6em;
     width: 1.6em;
-    color: white;
+    color: var(--btn-text);
     border: 1px solid rgba(256,256,256, .6);
     border-radius: 50%;
     text-align: center;

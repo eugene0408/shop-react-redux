@@ -11,6 +11,7 @@ export const CardWrapper = styled.div`
     margin-bottom: .5rem;
     overflow: hidden;
     box-shadow: var(--card-shadow);
+    color: var(--text-col);
 `
 export const CardImage = styled.div`
     height: 100%;
@@ -55,6 +56,9 @@ export const AmountWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 10%;
+    & svg path{
+        fill: var(--header-col);
+    }
 `
 
 export const AmountButton = styled.button`

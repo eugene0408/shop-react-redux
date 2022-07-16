@@ -6,11 +6,12 @@ export const Header = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 4rem;
+    color: var(--header-col);
     & svg {
         height: 34px;
         width: 34px;
         padding: 5px;
-        border: 1px dashed rgba(0,0,0, .5);
+        border: 1px dashed var(--header-col);
         border-radius: 50%;
     }
     & svg path {

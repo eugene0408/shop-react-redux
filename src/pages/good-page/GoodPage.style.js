@@ -20,11 +20,12 @@ export const GoodImage = styled.div`
 export const GoodTitle = styled.h3`
     font-size: 22px;
     font-weight: 700;
-    color: rgba(0,0,0, 0.6);
+    color: var(--header-col);
     text-transform: uppercase;
 `
 export const GoodDescription = styled.p`
     font-size: var(--text-fz);
+    color: var(--text-col);
     white-space: pre-wrap;
 `
 
@@ -39,19 +40,21 @@ export const GoodPrice = styled.p`
     font-size: 28px;
     font-weight: 700;
     text-align: right;
+    color: var(--text-col);
      &:after{
         content: '₴';
         font-size: 18px;
         font-weight: 700;
-        color: rgba(0,0,0, 0.6);
+        color: var(--header-col);
     }
 `
 export const GoodSize = styled.p`
     font-size: 28px;
+    color: var(--text-col);
     &:after{
         content: "г.";
         font-size: 22px;
-        color: rgba(0,0,0, .6);
+        color: var(--header-col);
     }
 `
 

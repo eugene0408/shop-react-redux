@@ -5,6 +5,7 @@ export const CartHeader = styled.h2`
     text-align: center;
     margin-top: 5rem;
     margin-bottom: 2.5rem;
+    color: var(--header-col);
 `
 
 export const TotalWrapper = styled.div`
@@ -12,6 +13,7 @@ export const TotalWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
     padding-top: 2.5rem;
+    color: var(--text-col);
 `
 
 export const TotalLabel = styled.h3`

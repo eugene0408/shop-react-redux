@@ -9,6 +9,7 @@ export const CardWrapper = styled.div`
     height: 17rem;
     width: 100%;
     box-shadow: var(--card-shadow);
+    color: var(--text-col);
     @media (min-width: 576px) {
         height: 20rem;
     }
@@ -47,7 +48,7 @@ export const Title = styled.h3`
     height: 2.2rem;
     margin: .3em;
     text-align: left;
-    color: rgba(0,0,0, .6);
+    color: var(--header-col);
     display: inline-block;
     position: relative;
     text-transform: capitalize;
@@ -71,7 +72,7 @@ export const Size = styled.p`
     &::after{
         content: "г.";
         font-size: 12px;
-        color: rgba(0,0,0, .8);
+        color: var(--header-col);
     }
 `
 export const Price = styled.p`
@@ -81,7 +82,7 @@ export const Price = styled.p`
     &:after{
         content: '₴';
         font-size: var(--text-fz);
-        color: rgba(0,0,0, .6);
+        color: var(--header-col);
         font-weight: 700;
     }
 `

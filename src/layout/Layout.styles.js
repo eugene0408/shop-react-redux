@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { Container } from 'react-grid-system'
 
+export const AppContainer = styled.div`
+    min-height: 100vh;
+`
 
 export const ToplineWrapper = styled.div`
     position: sticky;
@@ -9,6 +12,10 @@ export const ToplineWrapper = styled.div`
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     z-index: 2;
+    @media (min-width: 768px) {
+        background: transparent;
+        backdrop-filter: none;
+    }
 `
 
 export const ToplineContainer = styled(Container)`
@@ -25,7 +32,21 @@ export const ToplineNav = styled.nav`
     height: 3rem;
     width: 100%;  
     padding: 0 .8rem;
+    @media (min-width: 768px) {
+        background: var(--glass-bg);
+        border-radius: 0 0 10px 10px;
+        backdrop-filter: blur(10px);
+        padding: .4rem .8rem;
+    }
 `
+export const ButtonsWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 3.8rem;
+    height: 28px;
+`
+
 export const SelectWrapper = styled.div`
     position: fixed;
     top: 3.5rem;
@@ -53,6 +74,24 @@ export const CartAmount = styled.span`
     width: 1.1em;
     font-size: 10px;
     border-radius: 50%;
+    color: black;
     background: var(--yellow);
+`
 
+export const ThemeSwitch = styled.button`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    & svg {
+        width: 100%;
+    }
+    & svg * {
+        fill: black;
+    }
 `

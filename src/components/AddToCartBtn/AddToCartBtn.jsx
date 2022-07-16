@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux/es/exports';
-import { addToCart } from '../../store/goodsSlice';
+
+import { selectCart } from '../../store/selectors';
+import { addToCart } from '../../store/cartSlice';
 
 import { ReactComponent as CartIcon} from '../../assets/svg/cart.svg'
 
@@ -13,7 +15,7 @@ import {
 const AddToCartBtn = ({articul, btnSize}) => {
 
     const dispatch = useDispatch();
-    const cart = useSelector(state => state.goods.cart)
+    const cart = useSelector(selectCart)
 
   return (
     <Button

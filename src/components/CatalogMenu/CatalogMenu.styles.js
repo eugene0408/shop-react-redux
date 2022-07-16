@@ -5,6 +5,10 @@ export const MenuWrapper = styled.div`
     backdrop-filter: blur(10px);
     border-radius: 10px;  
     width: ${props => props.expanded ? "220px": "150px"};
+    transition: all .2s ease;
+    @media (min-width: 768px){
+        width: ${props => props.expanded ? "250px": "150px"};
+    }
 `
 
 export const MenuButton = styled.div`
@@ -27,29 +31,55 @@ export const MenuList = styled.ul`
     border-radius: 10px;
     list-style: none;
     padding: .9rem;
-    margin: 0;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    @media (min-width: 768px){
+        margin-top: 2rem;
+    }
 `
 
 export const MenuListItem = styled.li`
     cursor: pointer;
-
+    position: relative;
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: .8rem;
+    @media (min-width: 768px){
+        margin-bottom: 1.2rem;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 80%;
+            height: 1px;
+            border-bottom: 1px dashed #ff5b38;
+            transition: all .2s ease;
+        }
+        &:hover::after{
+            border-bottom: 1px dashed black;
+        }
+        &:hover svg{
+            border: 1px dashed black;
+            padding: 5px;
+        }
+    }
     & a {
         display: flex;
         align-items: center;
         justify-content: start;
+        color: black;
     }
     & svg {
         height: 32px;
         margin-right: .5rem;
         padding: .2rem;
-        border: 1px dashed var(--orange);
+        border: 1px dashed #ff5b38;
         border-radius: 50%;
+        transition: all .2s ease;
     }
     & svg path {
-        fill: rgba(0,0,0, .7);
+        fill: rgba(0,0,0, .8);
     }
-`
+    `

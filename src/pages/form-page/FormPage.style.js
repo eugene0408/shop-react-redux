@@ -14,6 +14,7 @@ const inputStyles = css`
 
 export const Label = styled.label`
     font-size: var(--text-fz);
+    color: var(--text-col);
 `
 
 export const Input = styled.input`

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 // Actions
-import { addAmount, reduceAmount, removeItem } from '../../store/goodsSlice'
+import { addAmount, reduceAmount, removeItem } from '../../store/cartSlice'
 // Icons
 import {ReactComponent as DownIcon} from '../../assets/svg/down-arrow.svg'
 import {ReactComponent as UpIcon} from '../../assets/svg/up-arrow.svg'

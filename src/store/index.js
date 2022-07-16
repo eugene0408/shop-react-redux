@@ -10,10 +10,17 @@ import {
     REGISTER,
    } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import goodsReducer from './goodsSlice';
+import categoriesReducer from './categoriesSlice';
+import cartReducer from './cartSlice';
+import themeReducer from './themeSlice';
 
 const rootReducer = combineReducers({
     goods: goodsReducer,
+    categories: categoriesReducer,
+    cart: cartReducer,
+    theme: themeReducer
   })
 
 const persistConfig = {

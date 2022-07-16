@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeCategory } from '../../store/goodsSlice';
+
+import { selectCategoriesList } from '../../store/selectors';
+import { changeCategory } from '../../store/categoriesSlice';
 
 import {ReactComponent as CaretIcon} from '../../assets/svg/caret.svg';
 import {ReactComponent as XIcon} from '../../assets/svg/xmark-solid.svg';
@@ -19,7 +21,7 @@ const CatalogMenu = () => {
 const [expanded, setExpanded] = useState(false);
 
 const dispatch = useDispatch()
-const menuItems = useSelector(state => state.goods.categories)
+const menuItems = useSelector(selectCategoriesList)
 
 const menuItemClickHandler = (e) => {
   const category = e.currentTarget.dataset.value;

@@ -1,19 +1,28 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Container, Row, Col } from 'react-grid-system'
+import { Container, Row } from 'react-grid-system'
+
+import { 
+  selectCategoriesList,
+  selectCurCategory,
+  selectGoodsByCategory
+} from '../../store/selectors'
 
 import GoodCard from '../../components/GoodCard/GoodCard'
 import { MenuIcons } from '../../components/CatalogMenu/CatalogMenu.icons'
 import { PageContainer } from '../pages.style'
+import {goodsGrid, GoodCol} from '../gridSettings'
 import { 
   Header, 
   HeaderTitle
 } from './CategoryPage.styles'
 
 const CategoryPage = () => {
-    const categories = useSelector(state => state.goods.categories)
-    const filteredGoods = useSelector(state => state.goods.filteredGoods)
-    const curCategory = useSelector(state => state.goods.curCategory)
+    const categories = useSelector(selectCategoriesList)
+    const filteredGoods = useSelector(selectGoodsByCategory)
+    const curCategory = useSelector(selectCurCategory)
+
+    console.log(curCategory)
 
     const categoryName = () => (
         categories.find(category => category.value === curCategory).label
@@ -28,19 +37,15 @@ const CategoryPage = () => {
             </HeaderTitle>
         </Header>
 
-        <Container>
+        <Container
+
+        >
         <Row style={{marginTop: '2rem'}}>
         {
             filteredGoods.map(good => (
-              <Col 
-                xs={6} md={4} lg={3} xl={2}
+              <GoodCol
                 key={good.articul}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  padding: '10px',
-                  position: 'relative'
-                }}
+                {...goodsGrid}
               >
                 <GoodCard      
                   title={good.name}
@@ -49,7 +54,7 @@ const CategoryPage = () => {
                   price={good.price}
                   size={good.size}
                 />
-              </Col>
+              </GoodCol>
             ))
           }
         </Row>

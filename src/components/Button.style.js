@@ -13,5 +13,5 @@ export const Button = styled.button`
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
-    color: white;
+    color: var(--btn-text);
 `

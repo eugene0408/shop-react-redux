@@ -13,6 +13,7 @@ export const Header = styled.h2`
     width: 100%;
     text-align: center;
     margin-bottom: 2.5rem;
+    color: var(--header-col)
 `
 
 export const PhoneWrapper = styled.a`
@@ -25,6 +26,9 @@ export const PhoneWrapper = styled.a`
     & svg{
         height: 22px;
         margin-right: 1rem;
+    }
+    & svg path {
+        fill: var(--orange);
     }
 `
 
@@ -42,6 +46,9 @@ export const SocialLink = styled.a.attrs({
     & svg {
         height: 25px;
         margin: 0 .5rem;
+    }
+    & svg path {
+        fill: var(--text-col)
     }
 `
 

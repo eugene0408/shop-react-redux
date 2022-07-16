@@ -70,8 +70,22 @@
   --yellow: #E6EB0F;
   --text-fz: 16px;
   --card-shadow: 0px 0px 8px 4px rgba(0,0,0,0.1);
+  --btn-icon-fill: rgba(256,256,256, .7);
+  --btn-text: white;
 }
 
+[data-theme = 'dark']{
+  --main-bg: #191d27;
+  --header-col: rgba(255,255,255, .9);
+  --card-bg: #212b33;
+  --text-col: white;
+  --orange: #f7e01d;
+  --btn-icon-fill: rgba(0,0,0, .7);
+  --btn-text: black;
+  
+}
+/* 393a3e */
+/* 212b33 */
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)){
   :root{
     --glass-bg: rgba(217,217,217, .8);
