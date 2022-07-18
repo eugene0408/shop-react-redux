@@ -4,7 +4,8 @@ import { Container, Row, Col } from 'react-grid-system';
 
 import {ReactComponent as PhoneIcon} from '../../assets/svg/phone-solid.svg'
 import {ReactComponent as FacebookIcon} from '../../assets/svg/facebook-f-brands.svg'
-import {ReactComponent as InstaIcon} from '../../assets/svg/instagram-brands.svg'
+import {ReactComponent as InstaIcon} from '../../assets/svg/instagram.svg'
+import {ReactComponent as TelegramIcon} from '../../assets/svg/telega.svg'
 
 import { 
     Wrapper,
@@ -40,11 +41,14 @@ const Footer = () => {
                     </PhoneWrapper>
 
                     <SocialWrapper>
-                        <SocialLink href="https://facebook.com">
+                        <SocialLink href="#">
                             <FacebookIcon />
                         </SocialLink>
-                        <SocialLink href="https://instagram.com">
+                        <SocialLink href="#">
                             <InstaIcon />
+                        </SocialLink>
+                        <SocialLink href="#">
+                            <TelegramIcon />
                         </SocialLink>
                     </SocialWrapper>
 

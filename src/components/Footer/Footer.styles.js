@@ -24,11 +24,20 @@ export const PhoneWrapper = styled.a`
     font-weight: 600;
     cursor: pointer;
     & svg{
-        height: 22px;
+        height: 24px;
         margin-right: 1rem;
+        border-radius: 50%;
+        border: 1px dashed var(--orange);
+        padding: 2.5px;
+        transition: .2s ease;
     }
     & svg path {
-        fill: var(--orange);
+        fill: var(--text-col);
+    }
+    @media (hover: hover){
+        &:hover svg path{
+            fill: var(--orange)
+        }
     }
 `
 
@@ -36,20 +45,28 @@ export const SocialWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;  
-    margin-top: 2rem; 
+    margin-top: 2.2rem; 
 `
 
 export const SocialLink = styled.a.attrs({
-    target: '_blank'
+    /* target: '_blank' */
 })`
     cursor: pointer;
     & svg {
-        height: 25px;
+        height: 22px;
+        width: 22px;
         margin: 0 .5rem;
+        transition: .2s ease;
     }
     & svg path {
-        fill: var(--text-col)
+        fill: var(--header-col)
     }
+    @media (hover: hover){
+        &:hover svg path{
+            fill: var(--orange)
+        }
+    }
+
 `
 
 

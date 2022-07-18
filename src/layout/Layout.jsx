@@ -50,7 +50,7 @@ const Layout = ()=> {
                     <ToplineNav>
 
                         <Link to={'/'}>
-                            <Logo style={{height: '38px'}}/>
+                            <Logo style={{height: '32px'}}/>
                         </Link>
 
                         <ButtonsWrapper>
