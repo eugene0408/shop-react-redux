@@ -5,6 +5,7 @@ import { selectCart } from '../store/selectors';
 import { selectTheme } from '../store/selectors';
 import { setTheme } from '../store/themeSlice';
 
+import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher';
 import CatalogMenu from '../components/CatalogMenu/CatalogMenu'
 import Footer from '../components/Footer/Footer'
 
@@ -54,6 +55,7 @@ const Layout = ()=> {
                         </Link>
 
                         <ButtonsWrapper>
+                            <LanguageSwitcher />
                             <ThemeSwitch
                                 onClick={() => theme === 'light' ? dispatch(setTheme('dark')) : dispatch(setTheme('light'))}
                             >

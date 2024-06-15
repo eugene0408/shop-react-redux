@@ -11,7 +11,7 @@ import {HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import ScrollToTop from './components/RouterScrollToTop';
-
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

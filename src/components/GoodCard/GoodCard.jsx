@@ -1,5 +1,7 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom'
+import { useCurrencyConverter } from '../../hooks/useCurrencyConverter';
 // Button
 import AddToCartBtn from '../AddToCartBtn/AddToCartBtn';
 
@@ -23,6 +25,11 @@ const GoodCard = ({
     size,
     articul
 }) => {
+
+    const {t} = useTranslation();
+    const { convertCurrency } = useCurrencyConverter();
+    const convertedPrice = convertCurrency(price).toFixed(2);
+
     return (
 
     <CardWrapper>
@@ -38,9 +45,11 @@ const GoodCard = ({
             <PriceWrapper>
                 <Size>
                     {size}
+                    <span>{t(`labels.measureSize`)}</span> 
                 </Size>
                 <Price>
-                    {price}
+                    {convertedPrice}
+                    <span>{t(`labels.currency`)}</span>
                 </Price>
             </PriceWrapper>
     

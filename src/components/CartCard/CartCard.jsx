@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useTransition } from 'react'
+import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux'
+import { useCurrencyConverter } from '../../hooks/useCurrencyConverter';
 // Actions
 import { addAmount, reduceAmount, removeItem } from '../../store/cartSlice'
 // Icons
@@ -31,6 +33,9 @@ const CartCard = ({
 }) => {
 
   const dispatch = useDispatch();
+  const {t} = useTranslation();
+  const { convertCurrency } = useCurrencyConverter();
+  const convertedPrice = convertCurrency(price).toFixed(2);
 
   return (
     <CardWrapper>
@@ -44,7 +49,8 @@ const CartCard = ({
             {title}
           </Title>
           <Price>
-            {price}
+            {convertedPrice}
+            <span>{t(`labels.currency`)}</span>
           </Price>
         </TitleWrapper>
 
@@ -66,10 +72,10 @@ const CartCard = ({
 
         <TotalWrapper>
           <TotalLabel>
-            Всього:
+            {t(`labels.cost`)}:
           </TotalLabel>
           <TotalPrice>
-            {amount * price}
+            {(amount * convertedPrice).toFixed(2)}
           </TotalPrice>
         </TotalWrapper>
 

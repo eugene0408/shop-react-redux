@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { useTranslation } from "react-i18next";
 import { Button } from '../Button.style'
 import { 
     Content, 
@@ -10,6 +11,9 @@ import {
 
 
 const EmptyCart = ({text}) => {
+
+  const {t} = useTranslation();
+
   return (
     <Wrapper>
         <Content>
@@ -22,7 +26,7 @@ const EmptyCart = ({text}) => {
         
         <Link to={'/'}>
           <Button>
-            На Головну
+            {t(`buttons.home`)}
           </Button>
         </Link>
 

@@ -28,4 +28,5 @@ export const AboutText = styled.p`
     margin-top: 0;
     text-align: left;
     color: var(--text-col);
+    white-space: pre-wrap;
 `

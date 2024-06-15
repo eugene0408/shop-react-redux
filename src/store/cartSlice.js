@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            if(state[action.payload.id] == undefined){
+            if(state[action.payload.id] === undefined){
                 state[action.payload.id] = 1
             }else{
                 state[action.payload.id]++

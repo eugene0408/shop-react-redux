@@ -69,8 +69,7 @@ export const PriceWrapper = styled.div`
 export const Size = styled.p`
     margin: 0;
     font-size: 16px;
-    &::after{
-        content: "г.";
+    & span {
         font-size: 12px;
         color: var(--header-col);
     }
@@ -79,8 +78,7 @@ export const Price = styled.p`
     margin: 0;
     font-size: 18px;
     font-weight: 700;
-    &:after{
-        content: '₴';
+    & span{
         font-size: var(--text-fz);
         color: var(--header-col);
         font-weight: 700;

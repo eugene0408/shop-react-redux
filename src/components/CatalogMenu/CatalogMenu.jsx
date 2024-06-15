@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectCategoriesList } from '../../store/selectors';
@@ -22,6 +23,7 @@ const [expanded, setExpanded] = useState(false);
 
 const dispatch = useDispatch()
 const menuItems = useSelector(selectCategoriesList)
+const {t} = useTranslation();
 
 const menuItemClickHandler = (e) => {
   const category = e.currentTarget.dataset.value;
@@ -36,7 +38,7 @@ const menuItemClickHandler = (e) => {
         <MenuButton
             onClick={()=> setExpanded(!expanded)}
         >
-            Каталог
+            {t(`headers.catalog`)}
             {!expanded &&
                 <CaretIcon/>   
             }
@@ -49,13 +51,13 @@ const menuItemClickHandler = (e) => {
             <MenuList>
                 { menuItems.map(item => (
                     <MenuListItem
-                        key={item.label}
+                        key={item.value}
                         data-value={item.value}
                         onClick={e => menuItemClickHandler(e)}
                     >
                         <Link to={`/categories/${item.value}`}>
                             <MenuIcons name={item.value}/>
-                            {item.label}
+                            {t(`categories.${item.value}`)}
                         </Link>
                     </MenuListItem>
                 ))}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from "react-i18next"
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { changeCategory } from '../../store/categoriesSlice'
@@ -11,10 +12,10 @@ import {
 
 const Category = ({
     image,
-    title,
     value
 }) => {
     const dispatch = useDispatch()
+    const {t} = useTranslation()
 
     const changeCategoryHandler = (e) => {
         let category = e.currentTarget.dataset.value;
@@ -30,7 +31,7 @@ const Category = ({
         <Link to={`/categories/${value}`}>
             <Image image={image} />
             <Title>
-                {title}
+                {t(`categories.${value}`)}
             </Title>
         </Link>
     </Wrapper>

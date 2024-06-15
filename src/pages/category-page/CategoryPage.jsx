@@ -1,9 +1,9 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 import { useSelector } from 'react-redux'
 import { Container, Row } from 'react-grid-system'
 
 import { 
-  selectCategoriesList,
   selectCurCategory,
   selectGoodsByCategory
 } from '../../store/selectors'
@@ -18,22 +18,16 @@ import {
 } from './CategoryPage.styles'
 
 const CategoryPage = () => {
-    const categories = useSelector(selectCategoriesList)
+    const {t} = useTranslation();
     const filteredGoods = useSelector(selectGoodsByCategory)
     const curCategory = useSelector(selectCurCategory)
-
-    console.log(curCategory)
-
-    const categoryName = () => (
-        categories.find(category => category.value === curCategory).label
-    )
 
   return (
     <PageContainer>
         <Header>
             <MenuIcons name={curCategory}/>
             <HeaderTitle>
-                {categoryName()}
+                {t(`categories.${curCategory}`)}
             </HeaderTitle>
         </Header>
 
@@ -48,7 +42,7 @@ const CategoryPage = () => {
                 {...goodsGrid}
               >
                 <GoodCard      
-                  title={good.name}
+                  title={t(`goods.${good.articul}.name`)}
                   image={good.image}
                   articul={good.articul}
                   price={good.price}

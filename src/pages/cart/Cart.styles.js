@@ -24,8 +24,7 @@ export const TotalValue = styled.p`
     font-size: 24px;
     margin-top: .3rem;
     font-weight: 700;
-     &:after{
-        content: '₴';
+     & span{
         font-size: 18px;
         font-weight: 700;
     }

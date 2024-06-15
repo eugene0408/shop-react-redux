@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, Row, Col } from 'react-grid-system';
 
@@ -28,6 +29,7 @@ import {
 } from './IndexPage.styles';
 
 const IndexPage = () => {
+  const {t} = useTranslation();
 
   const categories = useSelector(selectCategoriesList)
   const goods = useSelector(selectGoodsList)
@@ -42,7 +44,7 @@ const IndexPage = () => {
       <PageContainer>
         <Container>
           <SectionHeader>
-            Оберіть категорію
+            {t(`headers.categorySelect`)}
           </SectionHeader>
 
           {categoriesStatus === 'loading' && 
@@ -58,12 +60,11 @@ const IndexPage = () => {
              {
                categories.map(category => (
                  <Col
-                   key={category.label}
+                   key={category.value}
                    xs={6} md={4} lg={1.8} xxl={1.5}   
                  >
                    <CategoryCircle
                      image={category.image}
-                     title={category.label}
                      value={category.value}
                    />
                  </Col>
@@ -75,7 +76,7 @@ const IndexPage = () => {
 
 
           <SectionHeader>
-            Популярні товари
+            {t(`headers.popular`)}
           </SectionHeader>
 
 
@@ -97,7 +98,7 @@ const IndexPage = () => {
                     {...goodsGrid}
                   >
                     <GoodCard      
-                      title={good.name}
+                      title={t(`goods.${good.articul}.name`)}
                       image={good.image}
                       articul={good.articul}
                       price={good.price}
@@ -112,7 +113,7 @@ const IndexPage = () => {
           
 
           <SectionHeader>
-            Про нас
+            {t(`headers.about`)}
           </SectionHeader>
 
           <Row align='center'>
@@ -128,9 +129,7 @@ const IndexPage = () => {
               order={{xs: 1, md: 2}}
             >
               <AboutText>
-                Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Продолжил своих имени всеми злых рукописи грамматики запятой пор ведущими по всей прямо алфавит большой страна щеке которой пустился, инициал осталось.
-                За текстов если, языкового продолжил океана, рыбного эта рекламных семь несколько на берегу которой не языком заглавных выйти запятых коварный бросил переулка она моей осталось? Рот жизни безопасную буквоград лучше ipsum!
-                Проектах взгляд то осталось наш океана которое там это его меня послушавшись. Рекламных заголовок дорогу продолжил своего агентство дал lorem, жаренные решила даже моей однажды, по всей семантика одна текст предупреждал.
+                {t(`text.about`)}
               </AboutText>
             </Col>
           </Row>

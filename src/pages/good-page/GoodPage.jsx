@@ -1,5 +1,6 @@
 import {useParams} from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { useTranslation } from "react-i18next";
 
 import { PageContainer } from '../pages.style.js';
 import AddToCartBtn from '../../components/AddToCartBtn/AddToCartBtn.jsx';
@@ -16,7 +17,7 @@ import { Col, Container, Row } from 'react-grid-system';
 
 
 const GoodPage = () => {
-
+	const {t} = useTranslation();
 	const {goodId} = useParams();
 	const goods = useSelector(state => state.goods.goods)
 
@@ -36,11 +37,11 @@ const GoodPage = () => {
 						offset={{md: 2, lg: 3}}
 					>
 						<GoodTitle>
-							{good.name}
+							{t(`goods.${good.articul}.name`)}
 						</GoodTitle>
 
 						<GoodDescription>
-							{good.description}
+							{t(`goods.${good.articul}.description`)}
 						</GoodDescription>
 
 						<GoodPriceWrapper>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-grid-system';
+import { useTranslation } from "react-i18next";
 
 
 import {ReactComponent as PhoneIcon} from '../../assets/svg/phone-solid.svg'
@@ -19,11 +20,11 @@ import {
 
 
 const Footer = () => {
-
+    const {t} = useTranslation();
   return (
     <Wrapper>
         <Header>
-            Контакти
+            {t(`headers.contacts`)}
         </Header>
         <Container>
             <Row>

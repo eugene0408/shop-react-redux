@@ -42,8 +42,9 @@ export const ToplineNav = styled.nav`
 export const ButtonsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    position: relative;
     align-items: center;
-    width: 3.8rem;
+    width: 3.6rem;
     height: 28px;
 `
 

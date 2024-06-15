@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { useTranslation } from "react-i18next";
 
 import { selectCart } from '../../store/selectors';
 import { addToCart } from '../../store/cartSlice';
@@ -13,7 +14,7 @@ import {
 } from './AddToCartBtn.styles'
 
 const AddToCartBtn = ({articul, btnSize}) => {
-
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const cart = useSelector(selectCart)
 
@@ -33,7 +34,7 @@ const AddToCartBtn = ({articul, btnSize}) => {
             }
             <CartIcon />
         </IconWrapper>
-        у кошик
+        {t(`buttons.buy`)}
     </Button>
   )
 }

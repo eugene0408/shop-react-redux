@@ -43,8 +43,7 @@ export const Title = styled.p`
 export const Price = styled.p`
     font-size: 18px;
     font-weight: 700;
-     &:after{
-        content: '₴';
+     & span {
         font-size: var(--text-fz);
         font-weight: 700;
     }

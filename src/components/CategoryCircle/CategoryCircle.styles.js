@@ -31,6 +31,7 @@ export const Title = styled.h3`
     color: var(--header-col);
     text-align: center;
     transition: .3s ease;
+    text-transform: capitalize;
     @media (hover: hover){
         ${Wrapper}:hover & {
             color: var(--text-col);

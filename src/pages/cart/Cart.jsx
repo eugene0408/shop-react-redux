@@ -1,7 +1,9 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 import {Link} from 'react-router-dom'
 import {Container, Row, Col} from 'react-grid-system'
 import { useSelector } from 'react-redux'
+import { useCurrencyConverter } from '../../hooks/useCurrencyConverter'
 
 import { selectCart, selectGoodsInCart } from '../../store/selectors'
 
@@ -20,9 +22,10 @@ import {
 
 
 const Cart = () => {
-
+  const {t} = useTranslation();
   const cart = useSelector(selectCart);
   const goodsInCart = useSelector(selectGoodsInCart)
+  const {convertCurrency} = useCurrencyConverter()
 
   // Calculating total prise
   const totalPrice = () => {
@@ -33,14 +36,16 @@ const Cart = () => {
     return total;
   }
 
-  
+  const totalCurrency = convertCurrency(totalPrice()).toFixed(2)
+
+
   return (
     <PageContainer>
 
     {goodsInCart.length >= 1 &&
       <>
         <CartHeader>
-          Товари у кошику
+          {t(`headers.cartHeader`)}
         </CartHeader>
 
         <Container>
@@ -53,7 +58,7 @@ const Cart = () => {
                 >
                   <CartCard 
                     image={good.image}
-                    title={good.name}
+                    title={t(`goods.${good.articul}.name`)}
                     price={good.price}
                     articul={good.articul}
                     amount={cart[good.articul]}
@@ -70,9 +75,10 @@ const Cart = () => {
               md={11} lg={10} xl={9}
             >
               <TotalWrapper>
-                <TotalLabel>Сума:</TotalLabel>
+                <TotalLabel>{t(`labels.total`)}:</TotalLabel>
                 <TotalValue>
-                  {totalPrice()}
+                  {totalCurrency}
+                  <span>{t(`labels.currency`)}</span>
                 </TotalValue>
               </TotalWrapper>
             </Col>
@@ -81,9 +87,9 @@ const Cart = () => {
 
         <Container>
           <SubmitBtnWrapper>
-            <Link to={'/form'}>
+            <Link to={'/'}>
               <Button>
-                Оформити замовлення
+                {t(`buttons.submit`)}
               </Button>
             </Link>
           </SubmitBtnWrapper>
@@ -93,7 +99,7 @@ const Cart = () => {
 
     {goodsInCart.length < 1 &&
       <EmptyCart
-        text={'Кошик Порожній'}
+        text={t(`headers.emptyCart`)}
       />
     }
 
