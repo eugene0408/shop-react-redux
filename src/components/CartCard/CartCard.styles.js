@@ -96,3 +96,10 @@ export const DeleteButton = styled(AmountButton)`
         fill: red;
     }
 `
+export const LinkArea = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+`

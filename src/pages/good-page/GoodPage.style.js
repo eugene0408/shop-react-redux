@@ -41,8 +41,7 @@ export const GoodPrice = styled.p`
     font-weight: 700;
     text-align: right;
     color: var(--text-col);
-     &:after{
-        content: '₴';
+     & span{
         font-size: 18px;
         font-weight: 700;
         color: var(--header-col);
@@ -51,8 +50,7 @@ export const GoodPrice = styled.p`
 export const GoodSize = styled.p`
     font-size: 28px;
     color: var(--text-col);
-    &:after{
-        content: "г.";
+    & span{
         font-size: 22px;
         color: var(--header-col);
     }

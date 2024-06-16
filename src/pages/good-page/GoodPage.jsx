@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
+import {useCurrencyConverter} from "../../hooks/useCurrencyConverter.jsx"
 
 import { PageContainer } from '../pages.style.js';
 import AddToCartBtn from '../../components/AddToCartBtn/AddToCartBtn.jsx';
@@ -18,10 +19,13 @@ import { Col, Container, Row } from 'react-grid-system';
 
 const GoodPage = () => {
 	const {t} = useTranslation();
+	const {convertCurrency} = useCurrencyConverter()
 	const {goodId} = useParams();
 	const goods = useSelector(state => state.goods.goods)
 
 	const good = goods.find(good => good.articul === goodId)
+
+	const convertedPrice = convertCurrency(good.price).toFixed(2);
 
 	return (
 		<PageContainer>
@@ -47,9 +51,11 @@ const GoodPage = () => {
 						<GoodPriceWrapper>
 							<GoodSize>
 								{good.size}
+								<span>{t(`labels.measureSize`)}</span>
 							</GoodSize>
 							<GoodPrice>
-								{good.price}
+								{convertedPrice}
+								<span>{t(`labels.currency`)}</span>
 							</GoodPrice>
 						</GoodPriceWrapper>
 

@@ -1,4 +1,5 @@
 import React, { useTransition } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux'
 import { useCurrencyConverter } from '../../hooks/useCurrencyConverter';
@@ -21,7 +22,8 @@ import {
     TotalWrapper,
     TotalLabel,
     TotalPrice,
-    DeleteButton
+    DeleteButton,
+    LinkArea
  } from './CartCard.styles'
 
 const CartCard = ({
@@ -86,6 +88,11 @@ const CartCard = ({
           <XIcon />
         </DeleteButton>
       </ContentWrapper>
+
+      {/* link to description page */}
+      <Link to={`/products/${articul}`}>
+        <LinkArea />
+      </Link>
 
     </CardWrapper>
 
