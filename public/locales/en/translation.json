@@ -1,7 +1,9 @@
 {
     "headers": {
         "categorySelect": "Choose category",
+        "categories": "Categories",
         "popular": "Popular",
+        "similar": "Similar",
         "about": "About us",
         "contacts": "Contacts",
         "catalog": "Catalog",
@@ -21,7 +23,9 @@
         "tinctures": "tinctures"
     },
     "buttons": {
-        "buy": "To cart",
+        "buy": "to cart",
+        "toCart": "go to cart",
+        "addToCart": "add to cart",
         "submit": "Submit",
         "home": "Home"
     },

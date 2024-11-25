@@ -64,5 +64,13 @@ export const ButtonContainer = styled.div`
         margin-top: 3rem;
     }
 `
+export const Header = styled.h3`
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--header-col);
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+`
 
 
