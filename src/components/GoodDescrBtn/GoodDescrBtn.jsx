@@ -75,7 +75,9 @@ const GoodDescrBtn = ({articul}) => {
           value={articul}
           onClick={(e) => addButtonHandler(e)}
         >
-          {t(`buttons.addToCart`)}
+          <div>
+            {t(`buttons.addToCart`)}  
+          </div>
         </Button>
       }
 
