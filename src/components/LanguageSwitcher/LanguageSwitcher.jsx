@@ -20,8 +20,6 @@ const LanguageSwitcher = () => {
     setIsOpen(false);
   };
 
-  console.log(selectedLanguage);
-
   return (
     <Wrapper>
       {!isOpen && (
