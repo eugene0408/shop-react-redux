@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ReactComponent as UsFlagIcon } from "../../assets/svg/usa-flag.svg";
 import { ReactComponent as UkraineFlagIcon } from "../../assets/svg/ukraine-flag.svg";
