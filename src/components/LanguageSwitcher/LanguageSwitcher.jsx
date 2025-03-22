@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import {ReactComponent as UsFlagIcon} from '../../assets/svg/usa-flag.svg'
-import {ReactComponent as UkraineFlagIcon} from '../../assets/svg/ukraine-flag.svg'
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { ReactComponent as UsFlagIcon } from "../../assets/svg/usa-flag.svg";
+import { ReactComponent as UkraineFlagIcon } from "../../assets/svg/ukraine-flag.svg";
 
-import {
-    Wrapper,
-    Button,
-    IconWrapper
-} from './LanguageSwitcher.styles'
+import { Wrapper, Button, IconWrapper } from "./LanguageSwitcher.styles";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -24,31 +20,42 @@ const LanguageSwitcher = () => {
     setIsOpen(false);
   };
 
+  console.log(selectedLanguage);
+
   return (
     <Wrapper>
+      {!isOpen && (
+        <Button onClick={toggleDropdown}>
+          {selectedLanguage === "en" ? (
+            <IconWrapper>
+              <UsFlagIcon /> {"EN"}
+            </IconWrapper>
+          ) : (
+            <IconWrapper>
+              <UkraineFlagIcon /> {"UK"}
+            </IconWrapper>
+          )}
+        </Button>
+      )}
 
-        {!isOpen && (
-            <Button onClick={toggleDropdown}>
-                {selectedLanguage === 'en' 
-                  ? <IconWrapper> <UsFlagIcon/> EN </IconWrapper>
-                  : <IconWrapper> <UkraineFlagIcon/> UK </IconWrapper>
-                }
-            </Button>
-        )}
-        
-
-        {isOpen && (
-            <>
-             <Button onClick={() => changeLanguage('en')}>
-                <IconWrapper> <UsFlagIcon/> EN </IconWrapper>
-             </Button>
-             <Button onClick={() => changeLanguage('uk')}>
-                <IconWrapper> <UkraineFlagIcon/> UK </IconWrapper>
-             </Button>
-            </>
-        )}
+      {isOpen && (
+        <>
+          <Button onClick={() => changeLanguage("en")}>
+            <IconWrapper>
+              {" "}
+              <UsFlagIcon /> EN{" "}
+            </IconWrapper>
+          </Button>
+          <Button onClick={() => changeLanguage("uk")}>
+            <IconWrapper>
+              {" "}
+              <UkraineFlagIcon /> UK{" "}
+            </IconWrapper>
+          </Button>
+        </>
+      )}
     </Wrapper>
   );
 };
 
-export default LanguageSwitcher
+export default LanguageSwitcher;
